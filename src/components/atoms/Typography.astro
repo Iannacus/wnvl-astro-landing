@@ -1,0 +1,141 @@
+---
+const { variant, color, transform, size, align, extraClasses } = Astro.props;
+
+import {
+  H1,
+  H2,
+  H3,
+  H4,
+  H5,
+  H6,
+  Paragraph,
+  Label,
+  Caption,
+} from "../settings/typography";
+
+const colors = {
+  primary: "text-font-dark",
+  secondary: "text-font-blue",
+  grey: "text-font-grey",
+  alt: "text-font-grey-1",
+  white: "text-white",
+};
+---
+
+{
+  variant === "h1" && (
+    <H1
+      color={colors[color] || `text-[${color}]`}
+      font="font-sans"
+      extra={extraClasses}
+    >
+      <slot />
+    </H1>
+  )
+}
+
+{
+  variant === "h2" && (
+    <H2
+      color={colors[color] || `text-[${color}]`}
+      font="font-sans"
+      extra={extraClasses}
+    >
+      <slot />
+    </H2>
+  )
+}
+
+{
+  variant === "h3" && (
+    <H3
+      color={colors[color] || `text-[${color}]`}
+      font="font-sans"
+      extra={extraClasses}
+    >
+      <slot />
+    </H3>
+  )
+}
+
+{
+  variant === "h4" && (
+    <H4
+      color={colors[color] || `text-[${color}]`}
+      font="font-sans"
+      extra={extraClasses}
+    >
+      <slot />
+    </H4>
+  )
+}
+
+{
+  variant === "h5" && (
+    <H5
+      color={colors[color] || `text-[${color}]`}
+      font="font-sans"
+      extra={extraClasses}
+    >
+      <slot />
+    </H5>
+  )
+}
+
+{
+  variant === "h6" && (
+    <H6
+      color={colors[color] || `text-[${color}]`}
+      font="font-sans"
+      extra={extraClasses}
+    >
+      <slot />
+    </H6>
+  )
+}
+
+{
+  variant === "label" && (
+    <Label
+      color={colors[color]}
+      font="font-sans"
+      transform={transform}
+      extra={extraClasses}
+    >
+      <slot />
+    </Label>
+  )
+}
+
+{
+  variant === "caption" && (
+    <Caption
+      color={color ? colors[color] : "text-font-grey"}
+      font="font-sans"
+      transform={transform}
+      extra={extraClasses}
+    >
+      <slot />
+    </Caption>
+  )
+}
+
+{
+  variant === "span" && (
+    <span class:list={extraClasses ? [...extraClasses] : []}>
+      <slot />
+    </span>
+  )
+}
+
+{
+  (!variant || variant === "paragraph") && (
+    <Paragraph
+      color={color ? colors[color] : "text-font-grey"}
+      font="font-sans"
+      extra={extraClasses}
+    >
+      <slot />
+    </Paragraph>
+  )
+}

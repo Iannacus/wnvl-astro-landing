@@ -1,0 +1,24 @@
+---
+interface Props {
+  isStatic: boolean;
+}
+const { isStatic } = Astro.props;
+
+const mainClasses = [
+  "container",
+  "h-screen",
+  "mx-auto",
+  "px-3",
+  "2xl:px-0",
+  {
+    "h-screen": isStatic,
+    "min-h-screen": !isStatic,
+  },
+];
+---
+
+<div class:list={mainClasses}>
+  <div class="h-full">
+    <slot />
+  </div>
+</div>

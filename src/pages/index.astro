@@ -1,0 +1,37 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import Typography from "../components/atoms/Typography.astro";
+---
+
+<Layout title="Welcome to Astro.">
+  <main>
+    <SectionContainer isStatic>
+      <Typography variant="h1" align="center">Soy de primer nivel</Typography>
+      <Typography variant="h2">Soy de segundo nivel</Typography>
+      <Typography variant="h3">Soy de tercer nivel</Typography>
+      <Typography variant="h4">Soy de cuarto nivel</Typography>
+      <Typography variant="h5">Soy de quinto nivel</Typography>
+      <Typography variant="h6">El ultimo nivel</Typography>
+      <Typography color="alt">
+        Soy un parrafo común y corriente
+
+        <Typography
+          variant="span"
+          extraClasses={["text-wenvel-orange-1", "font-bold"]}
+        >
+          yo tengo lo mismo que el padre
+        </Typography>
+        Sin modificar el parrafo original
+      </Typography>
+      <Typography variant="label">Soy una etiqueta</Typography>
+      <Typography variant="caption" transform="uppercase">
+        Soy una llamada
+      </Typography>
+      <div class="flex">
+        <div class="w-14 h-14 bg-slate-300 dark:bg-slate-900"></div>
+        <div class="w-14 h-14 bg-slate-900 dark:bg-slate-300"></div>
+      </div>
+    </SectionContainer>
+  </main>
+</Layout>

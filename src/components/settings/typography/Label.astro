@@ -1,0 +1,19 @@
+---
+const { color, font, transform, extra } = Astro.props;
+
+const classes = [
+  font,
+  "font-bold",
+  "text-xl",
+  "m-0",
+  "leading-wnvl-3",
+  "text-wide",
+  color ?? "text-wenvel-purple-1",
+  transform ?? "uppercase",
+  extra ? [...extra] : "",
+];
+---
+
+<p class:list={classes}>
+  <slot />
+</p>
