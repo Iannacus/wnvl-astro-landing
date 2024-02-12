@@ -1,0 +1,46 @@
+---
+import { DualGradient } from "../settings";
+
+const { orientation, color } = Astro.props;
+
+const extraDictionary = {
+  'red-1': [
+        "bg-shadow-orange-1",
+        "from-shadow-orange-1",
+        "to-gradient-purple-1",
+      ],
+  'red': [
+        "bg-wenvel-red-1",
+        "from-wenvel-red-1",
+        "to-wenvel-red-2",
+      ],
+  'purple': [
+        "bg-gradient-purple-1",
+        "from-wenvel-red-2",
+        "to-gradient-purple-1",
+      ],
+  'orange': [
+      "bg-gradient-red",
+      "from-shadow-orange", 
+      "to-gradient-purple-1",
+    ]
+}
+---
+
+<DualGradient orientation={orientation} extra={["from-0%", "to-100%", ...extraDictionary[color ?? 'red']]}>
+  <solot />
+</DualGradient>
+
+{
+  color === 'white' && (
+    <DualGradient orientation={orientation}, extra={[
+      "bg-gradient-red",
+      "from-shadow-orange",
+      "from-0%",
+      "to-gradient-purple-1",
+      "to-100%"
+    ]}>
+      <slot />
+    </DualGradient>
+  )
+}

@@ -1,7 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import SectionContainer from "../components/SectionContainer.astro";
-import Typography from "../components/atoms/Typography.astro";
+import {
+  SectionContainer,
+  Typography,
+  TripleGradient,
+  BorderGradient,
+} from "@components/index";
 ---
 
 <Layout title="Welcome to Astro.">
@@ -29,8 +33,21 @@ import Typography from "../components/atoms/Typography.astro";
         Soy una llamada
       </Typography>
       <div class="flex">
-        <div class="w-14 h-14 bg-slate-300 dark:bg-slate-900"></div>
-        <div class="w-14 h-14 bg-slate-900 dark:bg-slate-300"></div>
+        <div style="width: 400px; height: 400px; position: relative">
+          <TripleGradient />
+        </div>
+        <div style="width: 400px; height: 400px; position: relative">
+          <BorderGradient orientation="left" />
+        </div>
+        <div style="width: 400px; height: 400px; position: relative">
+          <BorderGradient orientation="left" />
+        </div>
+        <div style="width: 400px; height: 400px; position: relative">
+          <BorderGradient orientation="left" />
+        </div>
+        <div style="width: 400px; height: 400px; position: relative">
+          <BorderGradient orientation="left" />
+        </div>
       </div>
     </SectionContainer>
   </main>

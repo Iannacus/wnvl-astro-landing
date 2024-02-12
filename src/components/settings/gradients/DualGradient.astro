@@ -1,0 +1,21 @@
+---
+const { orientation, extra } = Astro.props;
+
+const classes = [
+  extra ? [...extra] : "",
+  {
+    "bg-gradient-to-l": !orientation || orientation === "left",
+    "bg-gradient-to-r": orientation === "right",
+    "bg-gradient-to-t": orientation === "top",
+    "bg-gradient-to-b": orientation === "bottom",
+    "bg-gradient-to-tl": orientation === "top-left",
+    "bg-gradient-to-tr": orientation === "top-right",
+    "bg-gradient-to-bl": orientation === "bottom-left",
+    "bg-gradient-to-br": orientation === "bottom-right",
+  },
+];
+---
+
+<div class:list={["w-full", "h-full", [...classes]]}>
+  <slot />
+</div>

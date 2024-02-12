@@ -1,0 +1,21 @@
+---
+const { extra } = Astro.props;
+
+const classes = [
+  "absolute",
+  "w-full",
+  "h-full",
+  "z-1",
+  "bg-gradient-red",
+  "bg-gradient-to-tr",
+  "from-gradient-purple",
+  "from-20%",
+  "via-gradient-red",
+  "via-50%",
+  "to-gradient-orange",
+  "to-80%",
+  extra ? [...extra] : "",
+];
+---
+
+<div class:list={classes}></div>
