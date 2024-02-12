@@ -3,7 +3,6 @@ const { isStatic } = Astro.props;
 
 const mainClasses = [
   "container",
-  "h-screen",
   "mx-auto",
   "px-3",
   "2xl:px-0",
@@ -14,8 +13,8 @@ const mainClasses = [
 ];
 ---
 
-<div class:list={mainClasses}>
+<section class:list={mainClasses}>
   <div class="h-full">
     <slot />
   </div>
-</div>
+</section>
