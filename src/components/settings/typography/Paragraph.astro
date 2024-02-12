@@ -1,10 +1,10 @@
 ---
-const { color, font, transform, extra } = Astro.props;
+const { color, font, transform, size, weight, extra } = Astro.props;
 
 const classes = [
   font,
-  "font-medium",
-  "text-2xl",
+  weight || "font-medium",
+  size || "text-2xl",
   "m-0",
   "leading-wnvl-3",
   color,

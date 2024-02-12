@@ -5,6 +5,7 @@ import {
   Typography,
   TripleGradient,
   BorderGradient,
+  Button,
 } from "@components/index";
 ---
 
@@ -37,17 +38,34 @@ import {
           <TripleGradient />
         </div>
         <div style="width: 400px; height: 400px; position: relative">
-          <BorderGradient orientation="left" />
+          <BorderGradient orientation="left">
+            <Button variant="white" icon="fa-solid fa-check">
+              Botón blanco
+            </Button>
+          </BorderGradient>
         </div>
         <div style="width: 400px; height: 400px; position: relative">
           <BorderGradient orientation="left" />
         </div>
         <div style="width: 400px; height: 400px; position: relative">
-          <BorderGradient orientation="left" />
+          <div style="padding-top: 100px">
+            <Button icon="fa-solid fa-check" variant="white">
+              Soy un botón
+            </Button>
+            <Button icon="fa-solid fa-check" variant="orange">
+              Soy un botón
+            </Button>
+            <Button icon="fa-brands fa-apple" variant="red" caption="Get it on">
+              Soy un botón
+            </Button>
+            <Button icon="fa-solid fa-check" variant="purple">
+              Soy un botón
+            </Button>
+          </div>
         </div>
-        <div style="width: 400px; height: 400px; position: relative">
-          <BorderGradient orientation="left" />
-        </div>
+      </div>
+      <div style="width: 400px; height: 400px; position: relative">
+        <BorderGradient orientation="left" />
       </div>
     </SectionContainer>
   </main>

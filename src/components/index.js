@@ -11,7 +11,7 @@ import {
   TripleGradient,
   DualGradient,
 } from "./settings";
-import { Typography, BorderGradient } from "./atoms";
+import { Typography, BorderGradient, Button } from "./atoms";
 import { SectionContainer } from "./molecules";
 
 export {
@@ -27,6 +27,7 @@ export {
   DualGradient,
   TripleGradient,
   BorderGradient,
+  Button,
   Typography,
   SectionContainer,
 };

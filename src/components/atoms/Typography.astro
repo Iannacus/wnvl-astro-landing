@@ -1,5 +1,5 @@
 ---
-const { variant, color, transform, size, align, extraClasses } = Astro.props;
+const { variant, color, transform, size, weight, extraClasses } = Astro.props;
 
 import {
   H1,
@@ -133,6 +133,8 @@ const colors = {
     <Paragraph
       color={color ? colors[color] : "text-font-grey"}
       font="font-sans"
+      size={size}
+      weight={weight}
       extra={extraClasses}
     >
       <slot />

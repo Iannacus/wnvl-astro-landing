@@ -1,0 +1,79 @@
+---
+import Typography from "./Typography.astro";
+const { to, icon, variant, caption } = Astro.props;
+
+const values = {
+  background: {
+    white: "bg-transparent",
+    orange:
+      "bg-gradient-to-l bg-gradient-red from-shadow-orange from-0% to-gradient-purple-1 to-100%",
+    red: "bg-gradient-to-l bg-shadow-orange-1 from-shadow-orange-1 from-0% to-gradient-purple-1 to-100%",
+    purple:
+      "bg-gradient-to-r from-wenvel-red-2 from-0% to-gradient-purple-1 to-100%",
+  },
+  afterBg: {
+    white: "after:bg-white",
+    orange: "after:bg-gradient-orange",
+    red: "after:bg-gradient-red",
+    purple: "after:bg-gradient-purple-1",
+  },
+  boxShadow: {
+    white: "shadow-button1",
+  },
+  dropShadow: {
+    orange: "drop-shadow-orange",
+    red: "drop-shadow-red",
+    purple: "drop-shadow-purple",
+  },
+  leftStart: {
+    white: "after:left-full",
+  },
+  leftEnd: {
+    white: "group-hover:after:left-0",
+  },
+  textColor: {},
+  textColorH: {
+    white: "group-hover:text-gradient-purple",
+  },
+};
+---
+
+<a
+  href={to}
+  class=`group inline-block w-max ${values.background[variant] || 'bg-black'} ${values.boxShadow[variant] || ''} border-none rounded-tr-wenvel rounded-br-wenvel rounded-bl-wenvel overflow-hidden ${values.dropShadow[variant] || ''}`
+>
+  <div
+    class=`flex items-center py-8 px-20 bg-transparent relative after:content-[''] after:block after:w-full after:h-full after:absolute after:top-0 ${values.leftStart[variant] || 'after:left-0'} after:z-1 ${values.afterBg[variant] || 'after:bg-white'} after:transition-all after:duration-500 after:ease-in-out after:delay-0 ${values.leftEnd[variant] || 'group-hover:after:left-full'}`
+  >
+    <div
+      class=`relative z-2 flex justify-center items-center gap-x-3 transition-all duration-200 ease-out delay-100 ${values.textColor[variant] || "text-white"} ${values.textColorH[variant]}`
+    >
+      {icon && <div>{icon && <i class={`${icon} mr-1.5 text-icon`} />}</div>}
+      <div>
+        {
+          icon && (
+            <Typography
+              variant="caption"
+              transform="uppercase"
+              extraClasses={[
+                values.textColor[variant] || "text-white",
+                values.textColorH[variant],
+              ]}
+            >
+              {caption}
+            </Typography>
+          )
+        }
+        <Typography
+          weight="font-bold"
+          extraClasses={[
+            values.textColor[variant] || "text-white",
+            values.textColorH[variant],
+          ]}
+        >
+          <slot />
+        </Typography>
+      </div>
+    </div>
+  </div>
+</a>
