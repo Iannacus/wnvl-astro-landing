@@ -1,3 +1,3 @@
-import SectionContainer from "./SectionContainer.astro";
+import Container from "./Container.astro";
 
-export { SectionContainer };
+export { Container };

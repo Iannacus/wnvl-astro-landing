@@ -1,0 +1,15 @@
+---
+const mainClasses = ["container", "mx-auto", "px-3", "2xl:px-0"];
+---
+
+<div
+  class:list={[
+    "sm:max-w-[540px]",
+    "md:max-w-[720px]",
+    "lg:max-w-[960px]",
+    "xl:max-w-[1200px]",
+    ...mainClasses,
+  ]}
+>
+  <slot />
+</div>

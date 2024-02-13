@@ -1,0 +1,50 @@
+---
+import { Typography } from "..";
+import Container from "../molecules/Container.astro";
+
+const { logo } = Astro.props;
+---
+
+<nav class="fixed z-4 w-full top-0">
+  <div id="nav-div" class="bg-white/80 py-12 transition-all duration-300">
+    <Container>
+      <div class="flex justify-between items-center">
+        <!-- logo -->
+        <a class="w-20" href="/">
+          <img class="w-full" src={logo} alt="wenvel logo" />
+        </a>
+        <div class="w-1/2 flex justify-between gap-2">
+          <a href="">
+            <Typography weight="font-bold">Inicio</Typography>
+          </a>
+          <a href="">
+            <Typography weight="font-bold">Invitaciones</Typography>
+          </a>
+          <a href="">
+            <Typography weight="font-bold">Contacto</Typography>
+          </a>
+          <a href="">
+            <Typography weight="font-bold">Blog</Typography>
+          </a>
+        </div>
+      </div>
+    </Container>
+  </div>
+</nav>
+
+<script>
+  const nav = document.querySelector("#nav-div");
+  window.addEventListener("scroll", (e) => {
+    console.log(window.scrollY);
+    if (window.scrollY > 50) {
+      nav.classList.add("backdrop-blur-sm");
+      nav.classList.add("shadow-2xl");
+      nav.classList.add("shadow-wenvel-red/20");
+      nav.classList.add("scale-[1.03]");
+    } else {
+      nav.classList.remove("shadow-2xl");
+      nav.classList.remove("shadow-wenvel-red-/20");
+      nav.classList.remove("scale-[1.03]");
+    }
+  });
+</script>

@@ -1,10 +1,8 @@
 ---
-interface Props {
-  title: string;
-}
+import "../assets/styles/index.css";
+import { Nav } from "@components/index";
 
 const { title } = Astro.props;
-import "../assets/styles/index.css";
 ---
 
 <!doctype html>
@@ -13,11 +11,12 @@ import "../assets/styles/index.css";
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/assets/wenvel-logo.png" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
   <body>
+    <Nav logo="/assets/wenvel-logo.png" />
     <slot />
   </body>
 </html>

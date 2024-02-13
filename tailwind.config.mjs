@@ -5,6 +5,13 @@ export default {
     fontFamily: {
       sans: ["Spartan", "sans-serif"],
     },
+    screens: {
+      sm: "540px",
+      md: "768px",
+      lg: "992px",
+      xl: "1200px",
+      "2xl": "1400px",
+    },
     fontSize: {
       base: "1rem",
       xl: "1.4rem",

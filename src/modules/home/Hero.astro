@@ -1,40 +1,46 @@
 ---
 import {
-  SectionContainer,
+  Container,
   Typography,
   Button,
   FeatureImages,
 } from "@components/index";
 ---
 
-<SectionContainer>
-  <div class="flex justify-between items-center">
-    <div class="w-6/12 flex flex-col gap-12">
-      <Typography variant="h1" color="primary">
-        ¡Invitaciones únicas para eventos inolvidables!
-      </Typography>
-      <Typography color="grey">
-        En wenvel estamos emocionados de ser parte de los momentos más
-        importantes de tu vida. ¡Comencemos a crear juntos!
-      </Typography>
-      <div class="flex gap-4">
-        <Button variant="red" caption="Explora nuestras" icon="fas fa-envelope">
-          Invitaciones
-        </Button>
-        <Button
-          variant="orange"
-          caption="Contáctanos por"
-          icon="fab fa-whatsapp"
-        >
-          Whatsapp
-        </Button>
+<section>
+  <Container>
+    <div class="flex justify-between items-center">
+      <div class="w-6/12 flex flex-col gap-12">
+        <Typography variant="h1" color="primary">
+          ¡Invitaciones únicas para eventos inolvidables!
+        </Typography>
+        <Typography color="grey">
+          En wenvel estamos emocionados de ser parte de los momentos más
+          importantes de tu vida. ¡Comencemos a crear juntos!
+        </Typography>
+        <div class="flex gap-4">
+          <Button
+            variant="red"
+            caption="Explora nuestras"
+            icon="fas fa-envelope"
+          >
+            Invitaciones
+          </Button>
+          <Button
+            variant="orange"
+            caption="Contáctanos por"
+            icon="fab fa-whatsapp"
+          >
+            Whatsapp
+          </Button>
+        </div>
+      </div>
+      <div class="w-5/12">
+        <FeatureImages
+          img1="/assets/bautizo_phone_1.png"
+          img2="/assets/quince.png"
+        />
       </div>
     </div>
-    <div class="w-5/12">
-      <FeatureImages
-        img1="/assets/bautizo_phone_1.png"
-        img2="/assets/quince.png"
-      />
-    </div>
-  </div>
-</SectionContainer>
+  </Container>
+</section>

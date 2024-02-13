@@ -12,8 +12,8 @@ import {
   DualGradient,
 } from "./settings";
 import { Typography, BorderGradient, Button } from "./atoms";
-import { SectionContainer } from "./molecules";
-import { FeatureImages } from "./organism";
+import { Container } from "./molecules";
+import { FeatureImages, Nav } from "./organism";
 
 export {
   H1,
@@ -30,6 +30,7 @@ export {
   BorderGradient,
   Button,
   Typography,
-  SectionContainer,
+  Container,
   FeatureImages,
+  Nav,
 };
