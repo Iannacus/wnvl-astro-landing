@@ -13,6 +13,7 @@ import {
 } from "./settings";
 import { Typography, BorderGradient, Button } from "./atoms";
 import { SectionContainer } from "./molecules";
+import { FeatureImages } from "./organism";
 
 export {
   H1,
@@ -30,4 +31,5 @@ export {
   Button,
   Typography,
   SectionContainer,
+  FeatureImages,
 };

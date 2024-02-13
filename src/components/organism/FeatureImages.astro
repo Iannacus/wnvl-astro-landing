@@ -1,0 +1,29 @@
+---
+import { TripleGradient } from "..";
+
+const { img1, img2 } = Astro.props;
+---
+
+<div
+  class="static pt-60 pr-0 pb-20 pl-0 w-full h-full md:pt-72 md:pb-20 md:justify-center lg:relative lg:py-72"
+>
+  <div
+    class="relative flex justify-end items-center md:justify-center lg:justify-center"
+  >
+    <img
+      class="absolute top-1/2 -left-[5%] -translate-y-1/2 z-2 max-w-[50%] rounded-tr-pattern rounded-br-pattern rounded-bl-pattern md:-left-[5%] md:max-w-full lg:-left-[10%] shadow-wenvel"
+      src={img2}
+      alt="Invitacion bautizo wenvel"
+    />
+    <img
+      class="relative z-3 shadow-wenvel max-w-[60%] md:max-w-full"
+      src={img1}
+      alt="Invitación 15 años wenvel"
+    />
+    <div
+      class="absolute z-1 w-full rounded-tr-pattern rounded-br-pattern rounded-bl-pattern overflow-hidden h-[90%]"
+    >
+      <TripleGradient />
+    </div>
+  </div>
+</div>

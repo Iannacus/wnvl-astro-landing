@@ -12,7 +12,7 @@ export default {
       "3xl": "1.8rem",
       "4xl": "2rem",
       "5xl": "3rem",
-      icon: "3.4rem",
+      icon: "4rem",
       "6xl": "4rem",
       "7xl": "5rem",
       "8xl": "6rem",
@@ -97,9 +97,11 @@ export default {
       },
       borderRadius: {
         wenvel: "4rem",
+        pattern: "2rem",
       },
       boxShadow: {
         button1: "inset 0px 0px 0px .3rem #ffffff",
+        wenvel: "0px 35px 25px rgba(0,114,255, .4)",
       },
       dropShadow: {
         orange: "0px 10px 10px rgba(255, 154, 115, .2)",

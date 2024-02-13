@@ -1,12 +1,17 @@
 ---
-import { SectionContainer, Typography, Button } from "@components/index";
+import {
+  SectionContainer,
+  Typography,
+  Button,
+  FeatureImages,
+} from "@components/index";
 ---
 
 <SectionContainer>
-  <div class="flex justify-center items-center">
-    <div class="w-11/12">
+  <div class="flex justify-between items-center">
+    <div class="w-6/12 flex flex-col gap-12">
       <Typography variant="h1" color="primary">
-        ¡Invitaciones únicas para eventos inolvodables!
+        ¡Invitaciones únicas para eventos inolvidables!
       </Typography>
       <Typography color="grey">
         En wenvel estamos emocionados de ser parte de los momentos más
@@ -25,6 +30,11 @@ import { SectionContainer, Typography, Button } from "@components/index";
         </Button>
       </div>
     </div>
-    <div class="w-11/12"></div>
+    <div class="w-5/12">
+      <FeatureImages
+        img1="/assets/bautizo_phone_1.png"
+        img2="/assets/quince.png"
+      />
+    </div>
   </div>
 </SectionContainer>
