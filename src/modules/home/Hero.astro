@@ -7,48 +7,50 @@ import {
 } from "@components/index";
 ---
 
-<section class="bg-hero-image bg-cover bg-center h-screen">
-  <div
-    class="absolute dark:bg-gray-900/80 backdrop-blur-md bg-white/70 w-full h-full z-1"
-  >
-  </div>
-  <Container>
-    <div
-      class="flex flex-col justify-between items-center md:flex-row relative z-2 min-h-screen"
-    >
+<section class="bg-hero-image bg-cover bg-center">
+  <div class="dark:bg-gray-900/80 backdrop-blur-md bg-white/70 w-full h-full">
+    <Container>
       <div
-        class="w-10/12 ml-[8.33%] order-2 md:w-6/12 md:order-1 flex flex-col gap-12 md:ml-0"
+        class="flex flex-col justify-between items-center gap-16 md:flex-row min-h-screen py-16 md:py:0"
       >
-        <Typography variant="h1" color="primary">
-          ¡Invitaciones únicas para eventos inolvidables!
-        </Typography>
-        <Typography>
-          En wenvel estamos emocionados de ser parte de los momentos más
-          importantes de tu vida. ¡Comencemos a crear juntos!
-        </Typography>
-        <div class="w-full flex flex-col items-center gap-4 md:flex-row">
-          <Button
-            variant="red"
-            caption="Explora nuestras"
-            icon="fas fa-envelope"
+        <div
+          class="w-10/12 order-2 md:w-6/12 md:order-1 flex flex-col gap-12 md:ml-0"
+        >
+          <Typography
+            variant="h1"
+            color="primary"
+            extraClasses={["md:text-left", "text-center"]}
           >
-            Invitaciones
-          </Button>
-          <Button
-            variant="orange"
-            caption="Contáctanos por"
-            icon="fab fa-whatsapp"
-          >
-            Whatsapp
-          </Button>
+            ¡Invitaciones únicas para eventos inolvidables!
+          </Typography>
+          <Typography extraClasses={["md:text-left", "text-center"]}>
+            En wenvel estamos emocionados de ser parte de los momentos más
+            importantes de tu vida. ¡Comencemos a crear juntos!
+          </Typography>
+          <div class="w-full flex flex-col items-center gap-4 md:flex-row">
+            <Button
+              variant="red"
+              caption="Explora nuestras"
+              icon="fas fa-envelope"
+            >
+              Invitaciones
+            </Button>
+            <Button
+              variant="orange"
+              caption="Contáctanos por"
+              icon="fab fa-whatsapp"
+            >
+              Whatsapp
+            </Button>
+          </div>
+        </div>
+        <div class="w-10/12 order-1 md:w-5/12 md:order-2">
+          <FeatureImages
+            img1="/assets/bautizo_phone_1.png"
+            img2="/assets/quince.png"
+          />
         </div>
       </div>
-      <div class="w-10/12 order-1 md:w-5/12 md:order-2">
-        <FeatureImages
-          img1="/assets/bautizo_phone_1.png"
-          img2="/assets/quince.png"
-        />
-      </div>
-    </div>
-  </Container>
+    </Container>
+  </div>
 </section>

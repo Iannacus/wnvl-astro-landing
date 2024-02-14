@@ -1,5 +1,5 @@
 ---
-import { Typography } from "..";
+import { TripleGradient, Typography } from "..";
 import Container from "../molecules/Container.astro";
 
 const { logo } = Astro.props;
@@ -14,33 +14,72 @@ const { logo } = Astro.props;
           <img class="w-full" src={logo} alt="wenvel logo" />
         </a>
         <div
-          class="navLinks w-full min-h-[20vh] absolute bg-white left-0 top-[-200%] flex items-center pl-8 md:static md:bg-transparent md:justify-end md:min-h-fit transition-all duration-500 z-4"
+          class="navLinks w-full min-h-screen absolute left-[-100%] top-0 flex flex-col items-start gap-4 md:flex-row md:gap-0 md:static md:bg-transparent md:dark:bg-transparent md:justify-end md:min-h-fit transition-all duration-500 z-4"
         >
+          <TripleGradient extra={["md:hidden", "-z-2"]}>
+            <div
+              class="absolute w-full h-full top-0 left-0 -z-1 bg-slate-200/40 dark:bg-gray-900/90 backdrop-blur-3xl"
+            >
+            </div>
+          </TripleGradient>
           <div
-            class="w-1/2 flex flex-col items-start gap-8 md:flex-row md:items-center justify-between md:gap-2"
+            class="w-full min-h-fit flex justify-between py-12 px-8 md:hidden"
+          >
+            <div class="w-20">
+              <a class="block" href="/">
+                <img class="w-full" src={logo} alt="wenvel logo" />
+              </a>
+            </div>
+            <div class="flex gap-4">
+              <div>
+                <i
+                  id="dark-mode-mobile"
+                  class="fas fa-moon text-font-grey dark:text-slate-300 text-5xl mr-4 text-grey-1 cursor-pointer w-fit"
+                ></i>
+              </div>
+              <div class="block md:hidden">
+                <i
+                  id="close"
+                  class="fas fa-xmark text-5xl mr-4 text-font-grey dark:text-slate-300 cursor-pointer w-fit"
+                ></i>
+              </div>
+            </div>
+          </div>
+          <div
+            class="w-1/2 flex flex-col items-start justify-start gap-8 pl-8 md:pl-0 md:flex-row md:items-center md:justify-between md:gap-2"
           >
             <a href="">
-              <Typography weight="font-bold">Inicio</Typography>
+              <Typography weight="font-bold" size="text-5xl md:text-2xl">
+                Inicio
+              </Typography>
             </a>
             <a href="">
-              <Typography weight="font-bold">Invitaciones</Typography>
+              <Typography weight="font-bold" size="text-5xl md:text-2xl">
+                Invitaciones
+              </Typography>
             </a>
             <a href="">
-              <Typography weight="font-bold">Contacto</Typography>
+              <Typography weight="font-bold" size="text-5xl md:text-2xl">
+                Contacto
+              </Typography>
             </a>
             <a href="">
-              <Typography weight="font-bold">Blog</Typography>
+              <Typography weight="font-bold" size="text-5xl md:text-2xl">
+                Blog
+              </Typography>
             </a>
-            <i
-              id="dark-mode"
-              class="fas fa-moon text-font-grey dark:text-slate-300 text-5xl mr-4 text-grey-1 cursor-pointer w-fit"
-            ></i>
+            <div class="w-fit hidden md:block">
+              <i
+                id="dark-mode"
+                class="fas fa-moon text-font-grey dark:text-slate-300 text-5xl mr-4 text-grey-1 cursor-pointer w-fit"
+              ></i>
+            </div>
           </div>
         </div>
         <div class="block md:hidden">
           <i
-            id="mobile-menu"
-            class="fas fa-bars-staggered text-5xl mr-4 text-grey-1 cursor-pointer w-fit"
+            id="open"
+            class="fas fa-bars-staggered text-5xl mr-4 text-font-grey dark:text-slate-300 cursor-pointer w-fit"
           ></i>
         </div>
       </div>
@@ -51,39 +90,31 @@ const { logo } = Astro.props;
 <script>
   const nav = document.querySelector("#nav-div");
   const darkMode = document.querySelector("#dark-mode");
-  const menuButton = document.querySelector("#mobile-menu");
+  const darkModeMobile = document.querySelector("#dark-mode-mobile");
+  const openMenuButton = document.querySelector("#open");
+  const closeMenuButton = document.querySelector("#close");
   const navLinks = document.querySelector(".navLinks");
 
   const body = document.body;
 
+  const isMobile = window.innerWidth < 768;
+
   changeButton(getTheme());
 
-  darkMode.addEventListener("click", () => {
-    if (darkMode.classList.contains("fa-moon")) {
-      darkMode.classList.replace("fa-moon", "fa-sun");
-      setTheme("dark");
-      body.classList.replace("light", "dark");
-    } else {
-      darkMode.classList.replace("fa-sun", "fa-moon");
-      setTheme("light");
-      body.classList.replace("dark", "light");
-    }
+  darkMode.addEventListener("click", changeThemeMode);
+  darkModeMobile.addEventListener("click", changeThemeMode);
+
+  openMenuButton.addEventListener("click", (e) => {
+    navLinks.classList.remove("left-[-100%]");
+    navLinks.classList.add("left-0");
   });
 
-  menuButton.addEventListener("click", (e) => {
-    if (menuButton.classList.contains("fa-bars-staggered")) {
-      menuButton.classList.replace("fa-bars-staggered", "fa-xmark");
-      navLinks.classList.remove("top-[-200%]");
-      navLinks.classList.add("top-[10rem]");
-    } else {
-      menuButton.classList.replace("fa-xmark", "fa-bars-staggered");
-      navLinks.classList.remove("top-[10rem]");
-      navLinks.classList.add("top-[-200%]");
-    }
+  closeMenuButton.addEventListener("click", () => {
+    navLinks.classList.remove("left-0");
+    navLinks.classList.add("left-[-100%]");
   });
 
   window.addEventListener("scroll", (e) => {
-    console.log(window.scrollY);
     if (window.scrollY > 50) {
       nav.classList.add(
         "backdrop-blur-sm",
@@ -94,6 +125,7 @@ const { logo } = Astro.props;
         "dark:bg-slate-900/80"
       );
     } else {
+      changeToLight();
       nav.classList.remove(
         "shadow-2xl",
         "shadow-wenvel-red-/20",
@@ -112,11 +144,44 @@ const { logo } = Astro.props;
     localStorage.setItem("theme", theme);
   }
 
+  function changeToDark() {
+    if (isMobile) return darkModeMobile.classList.replace("fa-moon", "fa-sun");
+    darkMode.classList.replace("fa-moon", "fa-sun");
+  }
+
+  function changeToLight() {
+    if (isMobile) return darkModeMobile.classList.replace("fa-sun", "fa-moon");
+    darkMode.classList.replace("fa-sun", "fa-moon");
+  }
+
   function changeButton(current: string) {
     if (current === "dark") {
-      darkMode.classList.replace("fa-moon", "fa-sun");
+      changeToDark();
     } else {
-      darkMode.classList.replace("fa-sun", "fa-moon");
+      changeToLight();
     }
+  }
+
+  function changeThemeMode() {
+    if (isMobile) {
+      if (darkModeMobile.classList.contains("fa-moon")) {
+        changeToDark();
+        setTheme("dark");
+      } else {
+        changeToLight();
+        setTheme("light");
+      }
+    }
+    if (!isMobile) {
+      if (darkMode.classList.contains("fa-moon")) {
+        changeToDark();
+        setTheme("dark");
+      } else {
+        changeToLight();
+        setTheme("light");
+      }
+    }
+
+    body.classList.toggle("dark");
   }
 </script>

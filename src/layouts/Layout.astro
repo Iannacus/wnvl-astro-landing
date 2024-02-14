@@ -29,7 +29,13 @@ const { title } = Astro.props;
     localStorage.setItem("theme", "dark");
   }
 
-  body.classList.toggle("dark");
+  if (themeMode === "dark" && !body.classList.contains("dark")) {
+    body.classList.toggle("dark");
+  }
+
+  if (themeMode === "light" && body.classList.contains("dark")) {
+    body.classList.remove("dark");
+  }
 </script>
 
 <style>
