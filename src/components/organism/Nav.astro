@@ -56,17 +56,17 @@ const { logo } = Astro.props;
 
   const body = document.body;
 
+  changeButton(getTheme());
+
   darkMode.addEventListener("click", () => {
     if (darkMode.classList.contains("fa-moon")) {
       darkMode.classList.replace("fa-moon", "fa-sun");
-      localStorage.setItem("theme", "dark");
-      body.classList.remove("light");
-      body.classList.add("dark");
+      setTheme("dark");
+      body.classList.replace("light", "dark");
     } else {
       darkMode.classList.replace("fa-sun", "fa-moon");
-      localStorage.setItem("theme", "light");
-      body.classList.remove("dark");
-      body.classList.add("light");
+      setTheme("light");
+      body.classList.replace("dark", "light");
     }
   });
 
@@ -103,4 +103,20 @@ const { logo } = Astro.props;
       );
     }
   });
+
+  function getTheme() {
+    return localStorage.getItem("theme");
+  }
+
+  function setTheme(theme: string) {
+    localStorage.setItem("theme", theme);
+  }
+
+  function changeButton(current: string) {
+    if (current === "dark") {
+      darkMode.classList.replace("fa-moon", "fa-sun");
+    } else {
+      darkMode.classList.replace("fa-sun", "fa-moon");
+    }
+  }
 </script>

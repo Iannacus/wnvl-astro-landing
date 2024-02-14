@@ -21,6 +21,17 @@ const { title } = Astro.props;
   </body>
 </html>
 
+<script>
+  const body = document.body;
+  const themeMode = localStorage.getItem("theme");
+
+  if (!themeMode) {
+    localStorage.setItem("theme", "dark");
+  }
+
+  body.classList.toggle("dark");
+</script>
+
 <style>
   html {
     font-size: 62.5%;
