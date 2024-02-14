@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+  darkMode: "class",
   theme: {
     fontFamily: {
       sans: ["Spartan", "sans-serif"],
@@ -82,6 +83,9 @@ export default {
           orange: "#ff9a47",
           "orange-1": "#ff5b73",
         },
+      },
+      backgroundImage: {
+        "hero-image": "url('/assets/bghero.svg')",
       },
       lineHeight: {
         wnvl: {

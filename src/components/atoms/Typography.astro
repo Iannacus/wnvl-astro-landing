@@ -14,7 +14,7 @@ import {
 } from "../settings/typography";
 
 const colors = {
-  primary: "text-font-dark",
+  primary: "text-font-dark dark:text-slate-100",
   secondary: "text-font-blue",
   grey: "text-font-grey",
   alt: "text-font-grey-1",
@@ -110,7 +110,7 @@ const colors = {
 {
   variant === "caption" && (
     <Caption
-      color={color ? colors[color] : "text-font-grey"}
+      color={color ? colors[color] : "text-font-grey dark:text-slate-300"}
       font="font-sans"
       transform={transform}
       extra={extraClasses}
@@ -131,7 +131,9 @@ const colors = {
 {
   (!variant || variant === "paragraph") && (
     <Paragraph
-      color={color ? colors[color] : "text-font-grey"}
+      color={
+        color ? colors[color] || color : "text-font-grey dark:text-slate-300"
+      }
       font="font-sans"
       size={size}
       weight={weight}
