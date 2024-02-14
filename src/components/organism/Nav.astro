@@ -1,31 +1,43 @@
 ---
 import { Typography } from "..";
 import Container from "../molecules/Container.astro";
+import Icon from "../atoms/Icon.astro";
 
 const { logo } = Astro.props;
 ---
 
-<nav class="fixed z-4 w-full top-0">
+<nav class="fixed z-5 w-full top-0">
   <div id="nav-div" class="bg-white/80 py-12 transition-all duration-300">
     <Container>
-      <div class="flex justify-between items-center">
+      <div class="flex justify-between items-center px-4 md:px-0">
         <!-- logo -->
         <a class="w-20" href="/">
           <img class="w-full" src={logo} alt="wenvel logo" />
         </a>
-        <div class="w-1/2 flex justify-between gap-2">
-          <a href="">
-            <Typography weight="font-bold">Inicio</Typography>
-          </a>
-          <a href="">
-            <Typography weight="font-bold">Invitaciones</Typography>
-          </a>
-          <a href="">
-            <Typography weight="font-bold">Contacto</Typography>
-          </a>
-          <a href="">
-            <Typography weight="font-bold">Blog</Typography>
-          </a>
+        <div
+          class="navLinks w-full min-h-[20vh] absolute bg-white left-0 top-[-200%] flex items-center pl-8 md:static md:bg-transparent md:justify-end md:min-h-fit transition-all duration-500 z-4"
+        >
+          <div
+            class="w-1/2 flex flex-col items-start gap-8 md:flex-row md:items-center justify-between md:gap-2"
+          >
+            <a href="">
+              <Typography weight="font-bold">Inicio</Typography>
+            </a>
+            <a href="">
+              <Typography weight="font-bold">Invitaciones</Typography>
+            </a>
+            <a href="">
+              <Typography weight="font-bold">Contacto</Typography>
+            </a>
+            <a href="">
+              <Typography weight="font-bold">Blog</Typography>
+            </a>
+          </div>
+        </div>
+        <div class="block md:hidden">
+          <i
+            class="fas fa-bars-staggered text-5xl mr-4 text-grey-1 cursor-pointer w-fit"
+          ></i>
         </div>
       </div>
     </Container>
@@ -34,17 +46,36 @@ const { logo } = Astro.props;
 
 <script>
   const nav = document.querySelector("#nav-div");
+  const menuButton = document.querySelector("i");
+  const navLinks = document.querySelector(".navLinks");
+
+  menuButton.addEventListener("click", (e) => {
+    if (menuButton.classList.contains("fa-bars-staggered")) {
+      menuButton.classList.replace("fa-bars-staggered", "fa-xmark");
+      navLinks.classList.remove("top-[-200%]");
+      navLinks.classList.add("top-[10rem]");
+    } else {
+      menuButton.classList.replace("fa-xmark", "fa-bars-staggered");
+      navLinks.classList.remove("top-[10rem]");
+      navLinks.classList.add("top-[-200%]");
+    }
+  });
+
   window.addEventListener("scroll", (e) => {
     console.log(window.scrollY);
     if (window.scrollY > 50) {
-      nav.classList.add("backdrop-blur-sm");
-      nav.classList.add("shadow-2xl");
-      nav.classList.add("shadow-wenvel-red/20");
-      nav.classList.add("scale-[1.03]");
+      nav.classList.add(
+        "backdrop-blur-sm",
+        "shadow-2xl",
+        "shadow-wenvel-red/20",
+        "scale-[1.01]"
+      );
     } else {
-      nav.classList.remove("shadow-2xl");
-      nav.classList.remove("shadow-wenvel-red-/20");
-      nav.classList.remove("scale-[1.03]");
+      nav.classList.remove(
+        "shadow-2xl",
+        "shadow-wenvel-red-/20",
+        "scale-[1.01]"
+      );
     }
   });
 </script>

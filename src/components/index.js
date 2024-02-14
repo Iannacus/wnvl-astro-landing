@@ -11,7 +11,7 @@ import {
   TripleGradient,
   DualGradient,
 } from "./settings";
-import { Typography, BorderGradient, Button } from "./atoms";
+import { Typography, BorderGradient, Button, Icon } from "./atoms";
 import { Container } from "./molecules";
 import { FeatureImages, Nav } from "./organism";
 
@@ -29,6 +29,7 @@ export {
   TripleGradient,
   BorderGradient,
   Button,
+  Icon,
   Typography,
   Container,
   FeatureImages,
