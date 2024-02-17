@@ -1,0 +1,42 @@
+---
+import { TripleGradient } from "..";
+import { Typography } from "../atoms/index";
+import { classesToGradient } from "../settings/index";
+
+const colors = {
+  red: "shadow-shadow-red/30",
+  red1: "shadow-shadow-red-1/30",
+  purple: "shadow-shadow-purple/30",
+  orange: "shadow-shadow-orange/30",
+  orange1: "shadow-shadow-orange-1/30",
+};
+
+const { color, icon, colorizedBorder } = Astro.props;
+---
+
+<div
+  class=`w-full relative rounded-pattern overflow-hidden pr-1 pb-1 box-border shadow-card ${colors[color]}`
+>
+  {colorizedBorder && <TripleGradient />}
+
+  <div
+    class="relative z-2 rounded-[1.7rem] bg-slate-200 dark:bg-slate-900 ml-1 mt-1 px-16 pt-16 pb-28"
+  >
+    <div class="w-[75%]">
+      <Typography variant="h4" transform="capitalize">Hola A Todos</Typography>
+      <Typography>
+        kañsdjfñ sakdjf 98rt sdklñfpasd fksdhfasd oñifugdfolhja asdipuofgdfk
+      </Typography>
+    </div>
+    <div class="absolute bottom-[10px] right-[10px]">
+      <i
+        class:list={[
+          icon,
+          "text-[8rem]",
+          " bg-clip-text",
+          "text-transparent",
+          ...classesToGradient,
+        ]}></i>
+    </div>
+  </div>
+</div>

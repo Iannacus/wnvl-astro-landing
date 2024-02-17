@@ -1,4 +1,4 @@
-import { TripleGradient, DualGradient } from "./gradients";
+import { TripleGradient, DualGradient, classesToGradient } from "./gradients";
 import {
   H1,
   H2,
@@ -23,4 +23,5 @@ export {
   Caption,
   DualGradient,
   TripleGradient,
+  classesToGradient,
 };
