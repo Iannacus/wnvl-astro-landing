@@ -13,10 +13,9 @@ const classes = [
   "via-50%",
   "to-gradient-orange",
   "to-80%",
-  extra ? [...extra] : "",
 ];
 ---
 
-<div class:list={classes}>
+<div class:list={[...classes, extra ? [...extra] : ""]}>
   <slot />
 </div>

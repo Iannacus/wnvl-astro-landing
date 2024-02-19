@@ -11,7 +11,7 @@ const colors = {
   orange1: "shadow-shadow-orange-1/30",
 };
 
-const { color, icon, colorizedBorder } = Astro.props;
+const { title, content, color, icon, colorizedBorder } = Astro.props;
 ---
 
 <div
@@ -20,12 +20,12 @@ const { color, icon, colorizedBorder } = Astro.props;
   {colorizedBorder && <TripleGradient />}
 
   <div
-    class="relative z-2 rounded-[1.7rem] bg-slate-200 dark:bg-slate-900 ml-1 mt-1 px-16 pt-16 pb-28"
+    class="relative z-2 rounded-[1.7rem] bg-white dark:bg-slate-900 ml-1 mt-1 px-16 pt-16 pb-28"
   >
     <div class="w-[75%]">
-      <Typography variant="h4" transform="capitalize">Hola A Todos</Typography>
+      <Typography variant="h4" transform="capitalize">{title}</Typography>
       <Typography>
-        kañsdjfñ sakdjf 98rt sdklñfpasd fksdhfasd oñifugdfolhja asdipuofgdfk
+        {content}
       </Typography>
     </div>
     <div class="absolute bottom-[10px] right-[10px]">
