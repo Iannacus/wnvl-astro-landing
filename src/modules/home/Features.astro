@@ -3,21 +3,23 @@ import { Container } from "@components/index";
 import Card from "@components/molecules/Card.astro";
 ---
 
-<section class="bg-slate-200 dark:bg-slate-900">
-  <Container>
-    <div class="min-h-screen w-full">
-      <div class="flex">
-        <div class="w-1/2 p-16 flex flex-col gap-16">
-          <Card color="purple" colorizedBorder icon="fa-solid fa-envelope" />
-          <Card color="orange" icon="fas fa-check-to-slot" />
-          <Card color="red" colorizedBorder icon="fas fa-user" />
-        </div>
-        <div class="w-1/2 p-16 flex flex-col gap-16">
-          <Card color="red1" icon="fas fa-user" />
-          <Card icon="fas fa-user" colorizedBorder />
-          <Card color="orange1" icon="fas fa-user" />
+<section >
+  <div class="dark:bg-slate-800/80 backdrop-blur-md bg-white/70 w-full h-full">
+    <Container>
+      <div class="min-h-screen w-full">
+        <div class="flex">
+          <div class="w-1/2 p-16 flex flex-col gap-16">
+            <Card color="purple" colorizedBorder icon="fa-solid fa-envelope" />
+            <Card color="orange" icon="fas fa-check-to-slot" />
+            <Card color="red" colorizedBorder icon="fas fa-user" />
+          </div>
+          <div class="w-1/2 p-16 flex flex-col gap-16">
+            <Card color="red1" icon="fas fa-user" />
+            <Card icon="fas fa-user" colorizedBorder />
+            <Card color="orange1" icon="fas fa-user" />
+          </div>
         </div>
       </div>
-    </div>
-  </Container>
+    </Container>
+  </div>
 </section>
